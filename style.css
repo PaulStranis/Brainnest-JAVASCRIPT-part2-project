@@ -20,7 +20,7 @@
     border-radius: 10px;
 }
 
-.calculator form button {
+.calculator button {
     border: 0;
     outline: 0;
     width: 60px;
@@ -34,7 +34,7 @@
     margin: 10px;
 }
 
-form button.dobule-width {
+button.dobule-width {
     width: 145px;
 }
 
