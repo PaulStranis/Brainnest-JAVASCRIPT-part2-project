@@ -6,7 +6,6 @@ class Calculator {
   }
 
   clear() {
-    this.newCalculation = false;
     this.currentOperand = "";
     this.prevOperand = "";
     this.operation = undefined;
@@ -19,6 +18,7 @@ class Calculator {
   appendNumber(number) {
     if (this.newCalculation === true) {
       this.clear();
+      this.newCalculation = false;
     }
     if (this.currentOperand.toString().length >= 10) {
       return;
@@ -30,6 +30,7 @@ class Calculator {
   }
 
   chooseOperation(operation) {
+    this.newCalculation = false;
     if (this.currentOperand === "") {
       this.operation = operation;
       return;
