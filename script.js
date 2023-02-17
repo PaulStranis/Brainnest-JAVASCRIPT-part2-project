@@ -6,6 +6,7 @@ class Calculator {
   }
 
   clear() {
+    this.newCalculation = false;
     this.currentOperand = "";
     this.prevOperand = "";
     this.operation = undefined;
@@ -16,6 +17,9 @@ class Calculator {
   }
 
   appendNumber(number) {
+    if (this.newCalculation === true) {
+      this.clear();
+    }
     if (this.currentOperand.toString().length >= 10) {
       return;
     }
@@ -65,9 +69,14 @@ class Calculator {
       default:
         return;
     }
-    this.currentOperand = parseFloat(computation.toFixed(6));
+    if (computation.toString().length >= 10) {
+      this.currentOperand = computation.toExponential(6);
+    } else {
+      this.currentOperand = computation;
+    }
     this.operation = undefined;
     this.prevOperand = "";
+    this.newCalculation = true;
   }
 
   getDisplayNumber(number) {
