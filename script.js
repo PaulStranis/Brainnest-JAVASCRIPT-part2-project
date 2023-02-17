@@ -16,7 +16,7 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (this.currentOperand.toString().length > 9) {
+    if (this.currentOperand.toString().length >= 10) {
       return;
     }
     if (number === "." && this.currentOperand.includes(".")) {
