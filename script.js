@@ -54,7 +54,13 @@ class Calculator {
         computation = prev * current;
         break;
       case "/":
-        computation = prev / current;
+        if (current == 0) {
+          alert("Not allowed!");
+          this.currentOperand = "";
+          this.updateDisplay();
+        } else {
+          computation = prev / current;
+        }
         break;
       default:
         return;
