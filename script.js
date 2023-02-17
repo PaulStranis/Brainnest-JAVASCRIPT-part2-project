@@ -16,12 +16,20 @@ class Calculator {
   }
 
   appendNumber(number) {
-    if (number === "." && this.currentOperand.includes(".")) return;
+    if (this.currentOperand.toString().length > 9) {
+      return;
+    }
+    if (number === "." && this.currentOperand.includes(".")) {
+      return;
+    }
     this.currentOperand = this.currentOperand.toString() + number.toString();
   }
 
   chooseOperation(operation) {
-    if (this.currentOperand === "") return;
+    if (this.currentOperand === "") {
+      this.operation = operation;
+      return;
+    }
     if (this.prevOperand !== "") {
       this.compute();
     }
@@ -51,7 +59,7 @@ class Calculator {
       default:
         return;
     }
-    this.currentOperand = computation;
+    this.currentOperand = parseFloat(computation.toFixed(6));
     this.operation = undefined;
     this.prevOperand = "";
   }
